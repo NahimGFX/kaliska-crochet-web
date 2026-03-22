@@ -1,17 +1,35 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import ProductCard from "../components/ProductCard.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section
+    class="px-4 mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 justify-items-center"
+  >
+    <ProductCard
+      title="Mini Conejita Ballerina"
+      description="¡Esta adorable conejita bailarina está buscando un nuevo hogar! Viste un lindo vestido con lazos, su vestido se puede quitar."
+      price="30"
+      image="src/assets/Productos/ejemplo.webp"
+      slug="conejita-bailarina"
+    />
+
+    <ProductCard
+      title="Mini Conejita Punk"
+      description="¡Esta adorable conejita punk está buscando un nuevo hogar! Viste un lindo overol con su gorrito con pompones, su overo y gorro se puede quitar."
+      price="40"
+      image="src/assets/Productos/ejemplo.webp"
+      slug="conejita-punk"
+    />
+
+    <ProductCard
+      title="Mini Conejita Ajolote"
+      description="¡Esta adorable conejita punk está buscando un nuevo hogar! Viste un lindo overol con su gorrito con pompones, su overo y gorro se puede quitar."
+      price="40"
+      image="src/assets/Productos/ejemplo.webp"
+      slug="conejita-ajolote"
+    />
+  </section>
+</Layout>
