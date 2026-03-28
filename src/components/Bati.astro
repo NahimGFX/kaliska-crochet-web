@@ -1,0 +1,146 @@
+---
+
+---
+
+<section class="px-4 py-6 flex justify-center">
+  <div
+    class="bg-white rounded-4xl shadow-md max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+  >
+    <!-- Imagen -->
+    <div class="md:w-1/2 w-full px-5 py-5">
+      <img
+        src="/Productos/ballenas.webp"
+        alt="Conejita Bailarina de Crochet"
+        class="w-full h-full object-cover rounded-3xl"
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div class="md:w-1/2 w-full p-6 flex flex-col gap-4">
+      <!-- Título -->
+      <h1 class="text-2xl sm:text-3xl font-semibold text-gray-800">
+        Ballenas y Tiburon
+      </h1>
+
+      <!-- Descripción -->
+      <p class="text-gray-600 text-sm">
+        ¡Pequeños y adorables compañeros marinos ideales para decorar o regalar! <br
+        /><br />
+        ♡ Hecha a mano<br />
+        ♡ Altura: 5cm<br />
+        ♡ Material:Lana chenille extra suave<br />
+      </p>
+
+      <!-- Precio -->
+      <p class="text-morado text-xl font-medium">El precio no incluye envio.</p>
+      <p class="text-morado text-3xl font-bold">$5</p>
+
+      <!-- Personalización -->
+      <div>
+        <h2 class="font-semibold text-gray-800">Personalización</h2>
+
+        <p class="text-sm text-gray-600 mt-1">
+          Elige el modelo los colores que más te gusten.
+        </p>
+
+        <!-- Opciones -->
+        <div class="mt-3 text-sm text-gray-700">
+          <!-- Modelos Disponibles -->
+          <p class="font-medium mt-4">Modelos disponibles</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <label class="cursor-pointer">
+              <input
+                type="radio"
+                name="modelo"
+                value="Tiburón gris"
+                class="hidden peer"
+              />
+              <div
+                class="px-4 py-2 rounded-xl border border-gray-300 text-sm
+        peer-checked:border-morado peer-checked:bg-morado/10
+        hover:border-morado transition"
+              >
+                Tiburón gris
+              </div>
+            </label>
+
+            <label class="cursor-pointer">
+              <input
+                type="radio"
+                name="modelo"
+                value="Ballena rosada"
+                class="hidden peer"
+              />
+              <div
+                class="px-4 py-2 rounded-xl border border-gray-300 text-sm
+        peer-checked:border-morado peer-checked:bg-morado/10
+        hover:border-morado transition"
+              >
+                Ballena rosada
+              </div>
+            </label>
+
+            <label class="cursor-pointer">
+              <input
+                type="radio"
+                name="modelo"
+                value="Ballena celeste"
+                class="hidden peer"
+              />
+              <div
+                class="px-4 py-2 rounded-xl border border-gray-300 text-sm
+        peer-checked:border-morado peer-checked:bg-morado/10
+        hover:border-morado transition"
+              >
+                Ballena celeste
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aviso -->
+      <p class="text-xs text-gray-500 bg-gray-100 p-3 rounded-xl">
+        Si alguno no está disponible en stock, te avisaremos directamente por
+        WhatsApp para ofrecerte alternativas.
+      </p>
+
+      <!-- Botón -->
+      <button
+        id="whatsappBtn"
+        class="mt-4 bg-morado text-white py-3 rounded-xl hover:bg-lila transition-colors w-full font-medium"
+      >
+        Pedir por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const phone = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
+  const btn = document.getElementById("whatsappBtn");
+
+  btn.addEventListener("click", () => {
+    const modelo = document.querySelector(
+      'input[name="modelo"]:checked',
+    )?.value;
+
+    if (!modelo) {
+      alert("Por favor selecciona una opcion antes de continuar 😊");
+      return;
+    }
+
+    const producto = "Conejita Bailarina";
+
+    let mensaje = `Hola, me interesa la ${producto}`;
+
+    mensaje += `\n\nPersonalización:`;
+    mensaje += `\n- Modelo: ${modelo}`;
+
+    const telefono = `${phone}`;
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+  });
+</script>

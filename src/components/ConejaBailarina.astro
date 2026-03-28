@@ -9,7 +9,7 @@
     <!-- Imagen -->
     <div class="md:w-1/2 w-full px-5 py-5">
       <img
-        src="/Productos/ejemplo.webp"
+        src="/Productos/coneja-bailarina.webp"
         alt="Conejita Bailarina de Crochet"
         class="w-full h-full object-cover rounded-3xl"
       />
@@ -24,10 +24,12 @@
 
       <!-- Descripción -->
       <p class="text-gray-600 text-sm">
-        ¡Esta adorable conejita bailarina está buscando un nuevo hogar! Viste un
-        lindo vestido con lazos, su vestido se puede quitar.<br /><br />
+        ¡Esta adorable conejita bailarina está buscando un nuevo hogar! Luce un
+        hermoso vestido con lazos, además es desmontable para que puedas cambiar
+        su estilo.<br /><br />
         ♡ Hecha a mano<br />
-        ♡ Altura: 16cm <br />
+        ♡ Altura: 16cm<br />
+        ♡ Material:Lana chenille extra suave<br />
       </p>
 
       <!-- Precio -->
@@ -45,7 +47,7 @@
 
         <!-- Opciones -->
         <div class="mt-3 text-sm text-gray-700">
-          <!-- Cuerpo -->
+          <!-- Cuerpo
           <p class="font-medium">Cuerpo</p>
           <div class="flex gap-3 mt-2">
             <label class="cursor-pointer">
@@ -90,10 +92,24 @@
               </div>
             </label>
           </div>
-
+          w-->
           <!-- Vestido -->
           <p class="font-medium mt-4">Vestido y lazos</p>
           <div class="flex gap-3 mt-2">
+            <label class="cursor-pointer">
+              <input
+                type="radio"
+                name="vestido"
+                value="Rosa Bajo"
+                class="hidden peer"
+              />
+              <div
+                title="Rosa Bajo"
+                class="w-6 h-6 rounded-full bg-pink-100 peer-checked:border-2 peer-checked:border-morado peer-checked:scale-110 transition"
+              >
+              </div>
+
+            </label>
             <label class="cursor-pointer">
               <input
                 type="radio"
@@ -102,7 +118,7 @@
                 class="hidden peer"
               />
               <div
-                title="Rosado"
+                title="Rosa"
                 class="w-6 h-6 rounded-full bg-pink-300 peer-checked:border-2 peer-checked:border-morado peer-checked:scale-110 transition"
               >
               </div>
@@ -126,12 +142,12 @@
               <input
                 type="radio"
                 name="vestido"
-                value="Gris"
+                value="Verde"
                 class="hidden peer"
               />
               <div
-                title="Gris"
-                class="w-6 h-6 rounded-full bg-gray-400 peer-checked:border-2 peer-checked:border-morado peer-checked:scale-110 transition"
+                title="Verde"
+                class="w-6 h-6 rounded-full bg-green-300 peer-checked:border-2 peer-checked:border-morado peer-checked:scale-110 transition"
               >
               </div>
             </label>
@@ -161,14 +177,11 @@
   const btn = document.getElementById("whatsappBtn");
 
   btn.addEventListener("click", () => {
-    const cuerpo = document.querySelector(
-      'input[name="cuerpo"]:checked',
-    )?.value;
     const vestido = document.querySelector(
       'input[name="vestido"]:checked',
     )?.value;
 
-    if (!cuerpo || !vestido) {
+    if (!vestido) {
       alert("Por favor selecciona los colores antes de continuar 😊");
       return;
     }
@@ -178,8 +191,7 @@
     let mensaje = `Hola, me interesa la ${producto}`;
 
     mensaje += `\n\nPersonalización:`;
-    mensaje += `\n- Cuerpo: ${cuerpo}`;
-    mensaje += `\n- Vestido: ${vestido}`;
+    mensaje += `\n- Vestido y lazos: ${vestido}`;
 
     const telefono = `${phone}`;
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
