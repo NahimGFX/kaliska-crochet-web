@@ -1,0 +1,76 @@
+---
+
+---
+
+<section class="px-4 py-6 flex justify-center">
+  <div
+    class="bg-white rounded-4xl shadow-md max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+  >
+    <!-- Imagen -->
+    <div class="md:w-1/2 w-full px-5 py-5">
+      <img
+        src="/Productos/totoro.webp"
+        alt="Totoro"
+        class="w-full h-full object-cover rounded-3xl"
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div class="md:w-1/2 w-full p-6 flex flex-col gap-4">
+      <!-- Título -->
+      <h1 class="text-2xl sm:text-3xl font-semibold text-gray-800">
+        Totoro
+      </h1>
+
+      <!-- Descripción -->
+      <p class="text-gray-600 text-sm">
+        ¡Este adorable Totoro busca un nuevo hogar! Inspirado en la mágica película Mi vecino Totoro, es perfecto para acompañarte con su ternura y darle un toque especial a tu espacio. Su diseño suave y esponjoso lo hace ideal como decoración o regalo para fans del mundo Ghibli.
+        <br /><br />
+        ♡ Hecha a mano<br />
+        ♡ Altura: 4,5 cm<br />
+        ♡ Material: Lana chenille extra suave<br />
+      </p>
+
+      <!-- Precio -->
+      <p class="text-morado text-xl font-medium">El precio no incluye envio.</p>
+      <p class="text-morado text-3xl font-bold">$5</p>
+
+      <!-- Personalización -->
+
+      <!-- Aviso -->
+      <p class="text-xs text-gray-500 bg-gray-100 p-3 rounded-xl">
+        Puedes convertirlo en llavero y llevar tu Totoro contigo a todas partes por solo $1 extra
+        Si alguno no está disponible en stock, te avisaremos directamente por
+        WhatsApp para ofrecerte alternativas.
+      </p>
+
+      <!-- Botón -->
+      <button
+        id="whatsappBtn"
+        class="mt-4 bg-morado text-white py-3 rounded-xl hover:bg-lila transition-colors w-full font-medium"
+      >
+        Pedir por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const phone = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
+  const btn = document.getElementById("whatsappBtn");
+
+  btn.addEventListener("click", () => {
+    const color = document.querySelector(
+      'input[name="color"]:checked',
+    )?.value;
+
+    const producto = "Totoro";
+
+    let mensaje = `Hola, me interesa el ${producto}`;
+
+    const telefono = `${phone}`;
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+  });
+</script>
